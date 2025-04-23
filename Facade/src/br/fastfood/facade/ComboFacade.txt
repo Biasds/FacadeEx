@@ -1,0 +1,31 @@
+public class ComboFacade {
+    private Combo combo;
+
+    public void criarCombo(int codigoCombo) {
+        switch (codigoCombo) {
+            case 1 -> combo = new Combo(
+                    new Burger("Big Cheddar", 15.90),
+                    new Bebida("Coca-Cola", 6.50),
+                    new Sobremesa("Sorvete", 5.00)
+            );
+            case 2 -> combo = new Combo(
+                    new Burger("Chicken Supreme", 14.90),
+                    new Bebida("Sprite", 6.00),
+                    new Sobremesa("Bolo de Chocolate", 7.00)
+            );
+
+        }
+    }
+
+    public void exibirItens() {
+        if (combo != null) {
+            combo.exibirItens();
+        } else {
+            System.out.println("Nenhum combo foi criado.");
+        }
+    }
+
+    public double getPrecoTotal() {
+        return combo != null ? combo.getPrecoTotal() : 0.0;
+    }
+}
